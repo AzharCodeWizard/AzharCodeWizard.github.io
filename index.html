@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Azhar Ansari</title>
+<meta name="description" content="Azhar Ansari, Lead Android Engineer. Kotlin, Jetpack Compose, Android SDKs, on-device AI and security.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: single narrow column, hero + stat strip, timeline with left rail, project grid, skills, contact */
+:root{
+  --bg:#f6f7f5; --surface:#ffffff; --fg:#14201a; --muted:#56635b; --line:#dde3de; --accent:#0f7a55; --accent-ink:#ffffff; --accent-soft:#e1f1ea;
+  --display:'Space Grotesk',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1511;--surface:#141f19;--fg:#e8efe9;--muted:#97a69c;--line:#243229;--accent:#3ddc97;--accent-ink:#06130d;--accent-soft:#12281e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1511;--surface:#141f19;--fg:#e8efe9;--muted:#97a69c;--line:#243229;--accent:#3ddc97;--accent-ink:#06130d;--accent-soft:#12281e;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:960px;margin:0 auto}
+a{color:var(--accent)} a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding-block:20px;font-size:14px}
+nav .links{display:flex;gap:18px;flex-wrap:wrap} nav a{color:var(--muted);text-decoration:none} nav a:hover{color:var(--fg)}
+nav b{font:700 16px var(--display);color:var(--fg)}
+.hero{padding-block:56px 40px;display:grid;gap:20px}
+.hero h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:700;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{max-width:60ch;color:var(--muted);font-size:1.1rem;margin:0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line);color:var(--fg);background:var(--surface)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--line);background:var(--surface);border-radius:12px;overflow:hidden}
+.stat{padding:22px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
+.stat .n{font:700 clamp(1.8rem,4vw,2.5rem)/1 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.stat .l{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.4}
+section{padding-block:56px 8px}
+section>h2{font-size:clamp(1.6rem,4vw,2.1rem);margin:6px 0 28px}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);display:grid;gap:34px}
+.tl li{position:relative;padding-left:26px}
+.tl li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.tl h3{font-size:1.2rem} .tl .when{font:400 13px var(--mono);color:var(--muted);margin:4px 0 10px}
+.tl ul{margin:0;padding-left:18px;color:var(--muted)} .tl li li{padding:0;margin:4px 0} .tl li li::before{display:none}
+.tl ul li{position:static;padding-left:0}
+.tl ul li::before{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-size:1.1rem} .card p{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.tag{font:500 12px var(--mono);background:var(--accent-soft);color:var(--accent);padding:3px 8px;border-radius:5px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px 32px}
+.skills h3{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.skills p{margin:0}
+.contact{margin-top:56px;padding:36px 28px;border-radius:14px;background:var(--accent-soft);border:1px solid var(--line);display:grid;gap:14px}
+.contact h2{font-size:clamp(1.5rem,4vw,2rem)}
+.contact p{margin:0;color:var(--muted)}
+.mail{font:500 17px var(--mono);overflow-wrap:anywhere;color:var(--fg)}
+footer{padding-block:32px 40px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav><b>Azhar Ansari</b><div class="links"><a href="#impact">Impact</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero">
+  <div class="eyebrow">Lead Android Engineer · Gurugram, India</div>
+  <h1>I build Android apps and SDKs that <em>millions of people</em> rely on every day.</h1>
+  <p>6.5+ years in Kotlin and Jetpack Compose. At Airtel I lead a team of 7, own the retailer app's Android platform and ship on-device AI, security hardening and platform migrations at scale.</p>
+  <div class="cta">
+    <a class="btn primary" href="#contact">Get in touch</a>
+    <a class="btn" href="https://www.linkedin.com/in/iamazhar" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/AzharCodeWizard" rel="noopener">GitHub</a>
+    <a class="btn" href="https://medium.com/@iam_azhar" rel="noopener">Writing</a>
+  </div>
+</header>
+
+<div class="stats" id="impact" role="list">
+  <div class="stat" role="listitem"><div class="n">₹11 cr</div><div class="l">saved per year by EdgeMind, an in-house on-device face-liveness SDK</div></div>
+  <div class="stat" role="listitem"><div class="n">225K+</div><div class="l">daily activations on the app I lead (1.5L prepaid, 25K SIM swap, 50K postpaid)</div></div>
+  <div class="stat" role="listitem"><div class="n">10 lakh</div><div class="l">field workers protected daily by Safety Connect, India and Africa</div></div>
+  <div class="stat" role="listitem"><div class="n">40%</div><div class="l">less onboarding fraud with on-device photo deduplication</div></div>
+  <div class="stat" role="listitem"><div class="n">99.98%</div><div class="l">crash-free sessions after fixing the top 100 fatal crashes</div></div>
+  <div class="stat" role="listitem"><div class="n">10s → 4s</div><div class="l">load time of the CAF screen, 60% faster</div></div>
+</div>
+
+<section id="experience">
+  <div class="eyebrow">Experience</div>
+  <h2>Six years of shipping Android at scale</h2>
+  <ol class="tl">
+    <li>
+      <h3>Lead Software Engineer (Android), Bharti Airtel</h3>
+      <div class="when">Dec 2025 – Present · Gurugram</div>
+      <ul>
+        <li>Lead 7 Android engineers on architecture, reviews, mentoring and delivery.</li>
+        <li>Built EdgeMind, an offline face-liveness SDK with sub-200 ms inference, shared by apps, web and the BFF and load-tested to 200 verifications per minute.</li>
+        <li>Led the Android 16 (SDK 36) migration across 9 submodules: wrote the RFC, moved to AGP 8.10, Kotlin 2.0 and Java 21.</li>
+        <li>Fixed 27 high-severity static-analysis findings plus OTP bypass, IDOR and broken-auth gaps ahead of InfoSec and DPDP audits.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Senior Software Engineer (Android), Bharti Airtel</h3>
+      <div class="when">Jul 2022 – Nov 2025 · Gurugram</div>
+      <ul>
+        <li>Owned the Safety Connect SDK. Multi-stage GPS Kalman filtering and FFT-based magnetic-field detection cut false alerts from ~30% to ~5%.</li>
+        <li>Delivered Android 14 and Android 15 migrations with 16KB page alignment across three apps, rebuilding native JNI libraries.</li>
+        <li>Shipped Talsec RASP+ and the first Play Integrity rollout; modernized the network layer on Retrofit and OkHttp with encrypted payloads.</li>
+        <li>Integrated UIDAI-certified fingerprint scanners for eKYC and set up CI for bi-weekly releases.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>SDE Android, Baazi Games (BalleBaazi)</h3>
+      <div class="when">Sep 2021 – May 2022 · Delhi</div>
+      <ul><li>Migrated 70%+ of a legacy Java codebase to Kotlin, cutting ANRs by 60%, and shipped SportsX, a real-time player stock-trading format.</li></ul>
+    </li>
+    <li>
+      <h3>Software Engineer (Android), Patch InfoTech</h3>
+      <div class="when">Dec 2020 – Sep 2021 · Noida</div>
+      <ul><li>Built e-commerce features and faster custom UI rendering on a platform serving 35,000+ businesses.</li></ul>
+    </li>
+    <li>
+      <h3>Founding Member and Android Engineer, Nirmal Labs</h3>
+      <div class="when">Oct 2019 – Dec 2020</div>
+      <ul><li>Owned Android end to end and shipped 30+ apps, including custom audio playback and waveform UIs.</li></ul>
+    </li>
+  </ol>
+</section>
+
+<section id="projects">
+  <div class="eyebrow">Projects</div>
+  <h2>Things I build outside work</h2>
+  <div class="grid">
+    <article class="card"><h3><a href="https://play.google.com/store/apps/details?id=com.delhimetro.ai" rel="noopener">Where Is My Metro</a></h3><p>Live metro navigation for Delhi commuters, published on Google Play.</p><div class="tags"><span class="tag">Kotlin</span><span class="tag">Compose</span><span class="tag">Google Play</span></div></article>
+    <article class="card"><h3><a href="https://play.google.com/store/apps/details?id=com.azhar.ummah" rel="noopener">Ummah</a></h3><p>A daily companion app for prayer and Islamic practice, published on Google Play.</p><div class="tags"><span class="tag">Kotlin</span><span class="tag">KMP</span><span class="tag">Google Play</span></div></article>
+    <article class="card"><h3><a href="https://github.com/AzharCodeWizard/AILLMGallery" rel="noopener">AI LLM Gallery</a></h3><p>Run and compare on-device language models from a single gallery app.</p><div class="tags"><span class="tag">On-device AI</span><span class="tag">Kotlin</span></div></article>
+    <article class="card"><h3><a href="https://github.com/AzharCodeWizard/FaceCaptureSample" rel="noopener">AirFaceDetection</a></h3><p>Real-time on-device face detection and liveness experiments with CameraX.</p><div class="tags"><span class="tag">CameraX</span><span class="tag">ML</span></div></article>
+    <article class="card"><h3><a href="https://github.com/AzharCodeWizard/android15-migration-analyzer" rel="noopener">Android 15 Migration Analyzer</a></h3><p>Scans a project for Android 15 and 16KB page-size compatibility problems.</p><div class="tags"><span class="tag">Tooling</span><span class="tag">Android 15</span></div></article>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="eyebrow">Skills</div>
+  <h2>What I work with</h2>
+  <div class="skills">
+    <div><h3>Languages</h3><p>Kotlin, Java, C/C++ (JNI/NDK), TypeScript</p></div>
+    <div><h3>Android</h3><p>Jetpack Compose, Coroutines and Flow, Navigation, Room, CameraX, WorkManager, Hilt, Kotlin Multiplatform, Media3, Retrofit/OkHttp</p></div>
+    <div><h3>Architecture</h3><p>MVVM, Clean Architecture, multi-module Gradle, Android SDK (.aar) design, API versioning</p></div>
+    <div><h3>Platform</h3><p>Android 14/15/16 migrations, 16KB page size, edge-to-edge, AGP, KSP, R8, performance</p></div>
+    <div><h3>Security</h3><p>Talsec RASP+, Play Integrity, anti-tamper, OWASP Mobile Top 10, SAST/SCA remediation</p></div>
+    <div><h3>Quality and delivery</h3><p>Jenkins, Fastlane, Firebase Crashlytics, Perfetto, Dynatrace, ANR triage, mentoring</p></div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="contact">
+    <h2>Open to Senior, Staff and Lead Android roles</h2>
+    <p>India or remote (India-eligible). The quickest way to reach me is email.</p>
+    <div class="mail">azhar17@live.com</div>
+    <div class="cta"><a class="btn primary" href="mailto:azhar17@live.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/iamazhar" rel="noopener">LinkedIn</a><a class="btn" href="https://medium.com/@iam_azhar" rel="noopener">Medium</a></div>
+  </div>
+</section>
+<footer>© 2026 Azhar Ansari · B.Tech Computer Science, Kashi Institute of Technology · Kotlin Coroutines certified</footer>
+</div>
+</body>
+</html>
